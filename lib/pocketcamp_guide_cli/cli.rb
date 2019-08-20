@@ -1,4 +1,4 @@
-class PocketCampGuide::CLI 
+class PocketcampGuideCli::CLI 
 
 def call
   puts "something"

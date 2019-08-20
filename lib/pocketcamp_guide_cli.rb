@@ -1,6 +1,2 @@
-require "pocketcamp_guide_cli/version"
-
-module PocketcampGuideCli
-  class Error < StandardError; end
-  # Your code goes here...
-end
+require_relative "./pocketcamp_guide_cli/version"
+require_relative "./pocketcamp_guide_cli/cli"
