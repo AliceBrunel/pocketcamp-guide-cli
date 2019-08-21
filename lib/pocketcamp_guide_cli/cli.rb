@@ -1,7 +1,7 @@
 class PocketcampGuideCli::CLI 
 
 	def call
-		puts "Welcome to your Pocket Camp characters guide! If you want to know which animals to invite on your camp, you can view an animal card if you know its name, or search by theme, or search by resources."
+		puts "Welcome to your Pocket Camp guide! In the game, there is a lot of animals here to help you build your perfect campingsite, by giving you essences and resources. To know more about these characters and what they have to offer, select a choice below."
 		first_choices
 	end
 

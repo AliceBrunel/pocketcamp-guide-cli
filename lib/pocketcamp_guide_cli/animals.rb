@@ -1,0 +1,3 @@
+class PocketcampGuideCli::Animals
+
+end
