@@ -23,24 +23,17 @@ class PocketcampGuideCli::CLI
 	end
 
   def search_animal
-    puts "Type a name"
-    input = gets.strip
-    if input == "Agnes"
-      display_animals
-    else 
-      puts "Doesn't ring a bell..."
-      first_choices
-    end
+    
   end
 
-	def display_animals
+	def display_animals(animal)
 	  puts "------------"
 	  puts "------------"
-	  puts "name: Agnes"
+	  puts "Name : #{animal.name}"
 	  puts "------------"
-	  puts "species: Pig"
-	  puts "Theme: Cool"
-	  puts "Resources: coton, cool essence"
+	  puts "species: #{animal.species}"
+	  puts "Theme: #{animal.theme}"
+	  puts "Resources: #{animal.resources}"
 	  puts "------------"
 	  puts ""
 	  first_choices
