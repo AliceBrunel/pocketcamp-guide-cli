@@ -8,7 +8,7 @@ class PocketcampGuideCli::Animals
 	def initialize(name, species, objects)
 		@name = name 
 		@species = species
-		@objects = catchphrase
+		@objects = objects
 		@@all << self
 	end
 
@@ -25,16 +25,8 @@ class PocketcampGuideCli::Animals
 		end
 	end
   
-  def self.search_animals
-    puts "Type a name"
-    input = gets.strip
-    animal_names = @@all.collect {|animal_object| animal_object.name == input}
-    if input == animal_names
-      display_animals(animal_names)
-    else 
-      puts "Doesn't ring a bell..."
-      first_choices
-    end
+  def self.find_by_name(input)
+    @@all.find {|animal| animal.name == input}
   end
 
   
