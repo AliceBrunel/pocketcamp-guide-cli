@@ -1,14 +1,14 @@
 class PocketcampGuideCli::Animals
 
 
-	attr_accessor :name, :species, :objects
+	attr_accessor :name, :species, :resource
 
 	@@all = []
 
-	def initialize(name, species, objects)
-		@name = name 
+	def initialize(name, species, resource)
+		@name = name
 		@species = species
-		@objects = objects
+		@resource = resource
 		@@all << self
 	end
 
@@ -20,8 +20,8 @@ class PocketcampGuideCli::Animals
 		animals_array.each do |animal_hash|
 		name = animal_hash[:name]
 		species = animal_hash[:species]
-		objects = animal_hash[:objects]
-		self.new(name, species, objects)
+		resource = animal_hash[:resource]
+		self.new(name, species, resource)
 		end
 	end
   

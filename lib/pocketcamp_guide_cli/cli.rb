@@ -2,7 +2,7 @@ class PocketcampGuideCli::CLI
 
 	def call
 		puts "Welcome to your Pocket Camp guide! In the game, there is a lot of animals here to help you build your perfect campingsite, by giving you essences and resources. To know more about these characters and what they have to offer, select a choice below."
-		Animals.new("Agnes", "pig", "wool, cotton")
+		PocketcampGuideCli::Animals.new("Agnes", "pig", "wool, cotton")
 		first_choices
 	end
 
@@ -26,11 +26,11 @@ class PocketcampGuideCli::CLI
   def search_animal
     puts "Type a name"
     input = gets.strip
-    result = Animals.find_by_name(input)
+    result = PocketcampGuideCli::Animals.find_by_name(input)
     if input == result
       display_animals(result)
     else 
-      puts "Doesn't ring a bell..."
+      puts "Doesn't ring a bell... Try something else?"
       first_choices
     end
   end

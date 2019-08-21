@@ -1,5 +1,5 @@
 #!/usr/bin/env ruby
 
-require "pocketcamp_guide_cli"
+require "./lib/pocketcamp_guide_cli"
 
 PocketcampGuideCli::CLI.new.call
