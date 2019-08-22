@@ -1,13 +1,14 @@
 class PocketcampGuideCli::Animals
 
 
-	attr_accessor :name, :species, :resource
+	attr_accessor :name, :species, :theme, :resource
 
 	@@all = []
 
-	def initialize(name, species, resource)
+	def initialize(name, species, theme, resource)
 		@name = name
 		@species = species
+		@theme = theme
 		@resource = resource
 		@@all << self
 	end
@@ -19,9 +20,11 @@ class PocketcampGuideCli::Animals
 	def self.create_from_array(animals_array)
 		animals_array.each do |animal_hash|
 		name = animal_hash[:name]
+		personality = animal_hash[:personality]
 		species = animal_hash[:species]
+		theme = animal_hash[:theme]
 		resource = animal_hash[:resource]
-		self.new(name, species, resource)
+		self.new(name, species, theme, resource)
 		end
 	end
   
