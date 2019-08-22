@@ -1,19 +1,19 @@
-require 'nokogiri'
-require 'open-uri'
-
 class PocketcampGuideCli::Scraper
+   
+  @animals = []
   
-  @site = "https://animalcrossing.fandom.com/wiki/Villager_list_(Pocket_Camp)"
-  
+  def get_page 
+    Nokogiri::HTML(open("https://animalcrossing.fandom.com/wiki/Villager_list_(Pocket_Camp)"))
+  end
   def scrape_animal_info
-    page = Nokogiri::HTML(open(@site))
-    animal_info = page.css("table.roundy.sortable tr a[title]") 
-    @animals = animal_info.each_slice(5).to_a
+    animal_info = self.get_page.css("table.roundy.sortable tr a[title]") 
+    animal_info.each_slice(5).to_a
   end
     
   def make_animal_hashes
     animals_hash = []
-    @animals.each do |animal_array|
+    animals = scrape_animal_info
+    animals.each do |animal_array|
       name = animal_array[0].text
       personality = animal_array[1].text
       species = animal_array[2].text

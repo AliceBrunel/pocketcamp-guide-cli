@@ -1,3 +1,4 @@
-require_relative "./pocketcamp_guide_cli/version"
-require_relative "./pocketcamp_guide_cli/animals"
-require_relative "./pocketcamp_guide_cli/cli"
+module PocketcampGuideCli
+end
+
+require_relative '../config/environment'
