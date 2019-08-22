@@ -29,7 +29,7 @@ class PocketcampGuideCli::Animals
 	end
   
   def self.find_by_name(input)
-    @@all.find {|animal| animal.name == input}
+    found = @@all.find {|animal| animal.name == input}
   end
 
   

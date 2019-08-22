@@ -7,10 +7,11 @@ class PocketcampGuideCli::CLI
 	end
 
 	def first_choices
-	  puts "What would you like to do?"
-		puts "[1] Search by name"
+		puts "[1] Search by animal name"
 		puts "[2] Search by theme and essences"
 		puts "[3] Search by resources"
+		puts "[4] To exit"
+		
 		input = gets.strip.to_i
 		if input == 1 
 		  search_animal
@@ -18,8 +19,11 @@ class PocketcampGuideCli::CLI
 		  search_theme
 		elsif input == 3
 		  search_resources
+		  elsif input == 4
+		  puts "See you soon!"
 		else 
 		  puts "This input is not valid"
+		  first_choices
 		end
 	end
 
@@ -27,8 +31,9 @@ class PocketcampGuideCli::CLI
     puts "Type a name"
     input = gets.strip.to_s
     result = PocketcampGuideCli::Animals.find_by_name(input)
-    if input == result
+    if result != nil
       display_animals(result)
+      search_animal
     else 
       puts "Doesn't ring a bell... Try something else?"
       first_choices
@@ -36,16 +41,13 @@ class PocketcampGuideCli::CLI
   end
 
 	def display_animals(animal)
-	  puts "------------"
-	  puts "------------"
-	  puts "Name : #{animal.name}"
-	  puts "------------"
-	  puts "species: #{animal.species}"
-	  puts "Theme: #{animal.theme}"
-	  puts "Resources: #{animal.resources}"
-	  puts "------------"
 	  puts ""
-	  first_choices
+	  puts "--|#{animal.name}|-----------"
+	  puts "   Species: #{animal.species}"
+	  puts "   Theme: #{animal.theme}"
+	  puts "   Resource: #{animal.resource}"
+	  puts "                   ^   ^    "
+	  puts "----------------- (=^·^=) --"
 	end
   
   def search_theme 
