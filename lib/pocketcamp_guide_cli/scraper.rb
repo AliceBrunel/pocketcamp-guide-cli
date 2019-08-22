@@ -22,6 +22,6 @@ class PocketcampGuideCli::Scraper
       animals_hash << {:name => name, :species => species, :theme => theme, :resource => resource}
     end
     animals_hash
-  end 
-  
+  end
+ 
 end

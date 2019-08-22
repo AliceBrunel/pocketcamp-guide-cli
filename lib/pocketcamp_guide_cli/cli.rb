@@ -8,9 +8,10 @@ class PocketcampGuideCli::CLI
 	end
 
 	def first_choices
+	  puts "What would you like to do?"
 		puts "[1] Search by animal name"
 		puts "[2] Search by theme"
-		puts "[3] Search by resources"
+		puts "[3] Search by resource"
 		puts "[4] To exit"
 		
 		input = gets.strip.to_i
@@ -18,6 +19,7 @@ class PocketcampGuideCli::CLI
 		  search_animal
 		elsif input == 2 
 		  search_theme
+		  first_choices
 		elsif input == 3
 		  search_resources
 		  elsif input == 4
@@ -42,24 +44,37 @@ class PocketcampGuideCli::CLI
   end
 
 	def display_animals(animal)
+	  puts "---|#{animal.name}'s|-----------"
 	  puts ""
-	  puts "--|#{animal.name}|-----------"
-	  puts "   Species: #{animal.species}"
-	  puts "   Theme: #{animal.theme}"
-	  puts "   Resource: #{animal.resource}"
-	  puts "                   ^   ^    "
-	  puts "----------------- (=^·^=) --"
+	  puts "   species is: #{animal.species}"
+	  puts "   It's theme and essence: #{animal.theme}"
+	  puts "   This animal will give you: #{animal.resource}"
+	  puts ""
+	  puts "                ^   ^    "
+	  puts "-------------- (=^·^=) --"
 	  puts ""
 	end
   
-  def multiple_result(array,animal)
+  def multiple_result(array)
     array.each do |item|
-      display_animals(animal)
+      display_animals(item)
     end
   end
   
   def search_theme 
-    
+    puts "Type a following:"
+    puts "cool essence   -   natural essence   -  modern essence"
+    puts "harmonious essence   -   hip essence   -   sporty essence"
+    puts "cute essence   -   civic essence   -   rustic essence"
+    puts "elegant essence   -   historical essence"
+    input = gets.strip.to_s
+    array_result = PocketcampGuideCli::Animals.find_by_theme(input)
+    if array_result == input
+      multiple_result(array_result)
+      puts "#{array_result.count} result(s)."
+    else
+      "This is not a valid resource."
+    end
   end
   
   def search_resources

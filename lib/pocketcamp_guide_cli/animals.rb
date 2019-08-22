@@ -33,7 +33,7 @@ class PocketcampGuideCli::Animals
   end
   
   def self.find_by_theme(input)
-    @@all.find {|animal| animal.theme.include?("input")}
+    @@all.select {|animal| animal.theme.include?(input) == true}
   end
 
   
