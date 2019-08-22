@@ -3,12 +3,13 @@ class PocketcampGuideCli::CLI
 	def call
 		animal_hash = PocketcampGuideCli::Scraper.new.make_animal_hashes
 		PocketcampGuideCli::Animals.create_from_array(animal_hash)
+		puts "There is currently #{PocketcampGuideCli::Animals.all.count} registered animals in the PocketCamp game."
 		first_choices
 	end
 
 	def first_choices
 		puts "[1] Search by animal name"
-		puts "[2] Search by theme and essences"
+		puts "[2] Search by theme"
 		puts "[3] Search by resources"
 		puts "[4] To exit"
 		
@@ -48,34 +49,21 @@ class PocketcampGuideCli::CLI
 	  puts "   Resource: #{animal.resource}"
 	  puts "                   ^   ^    "
 	  puts "----------------- (=^·^=) --"
+	  puts ""
 	end
   
+  def multiple_result(array,animal)
+    array.each do |item|
+      display_animals(animal)
+    end
+  end
+  
   def search_theme 
-    puts "Here is the list of themes and essences. Type the number corresponding to the essence you are looking for and this will print the animals who will give you the essence."
-    puts "Essence list"
-    input = gets.strip.to_1
-    "Agnes"
-    "Agnes"
-    "Agnes"
-    "Agnes"
-    "Agnes"
-    "Agnes"
-    "Agnes"
-    first_choices
+    
   end
   
   def search_resources
-    puts "Here is the list of resources. Type the number corresponding to the Resources you are looking for and this will print the animals who will give you the resources."
-    puts "resources list"
-    input = gets.strip.to_1
-    "Agnes"
-    "Agnes"
-    "Agnes"
-    "Agnes"
-    "Agnes"
-    "Agnes"
-    "Agnes"
-    first_choices
+    
   end
   
 end
