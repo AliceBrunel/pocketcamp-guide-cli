@@ -62,11 +62,13 @@ class PocketcampGuideCli::CLI
   end
   
   def search_theme 
-    puts "Type a following:"
-    puts "cool essence   -   natural essence   -  modern essence"
-    puts "harmonious essence   -   hip essence   -   sporty essence"
-    puts "cute essence   -   civic essence   -   rustic essence"
-    puts "elegant essence   -   historical essence"
+    puts "Type a following to view:"
+    puts "cool         -   natural"
+    puts "harmonious   -   modern"
+    puts "hip          -   sporty"
+    puts "cute         -   civic"
+    puts "elegant      -   historical"
+    puts "rustic"
     input = gets.strip.to_s
     array_result = PocketcampGuideCli::Animals.find_by_theme(input)
     if array_result == input
