@@ -3,15 +3,17 @@ class PocketcampGuideCli::CLI
 	def call
 		animal_hash = PocketcampGuideCli::Scraper.new.make_animal_hashes
 		PocketcampGuideCli::Animals.create_from_array(animal_hash)
-		puts "There is currently #{PocketcampGuideCli::Animals.all.count} registered animals in the PocketCamp game."
+		puts "There is currently #{PocketcampGuideCli::Animals.all.count} registered animals in the PocketCamp game!"
 		first_choices
 	end
 
 	def first_choices
 	  puts "What would you like to do?"
-		puts "Search by animal name type name"
-		puts "Search by resource type resource"
+	  puts ""
+		puts "Tp search by animal name type name"
+		puts "To search by resource type resource"
 		puts "To exit type exit"
+		puts ""
 		
 		input = gets.strip
 		if input == "name" 

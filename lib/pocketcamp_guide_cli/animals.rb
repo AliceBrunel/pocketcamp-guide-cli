@@ -33,11 +33,12 @@ class PocketcampGuideCli::Animals
   end
 
   def self.get_all_resources
+    resources_array = []
     @@all.each do |animal|
-      resources_array = []
       resources_array << animal.resource
-      puts resources_array.uniq
     end
+    puts "Type the resource you are looking for to see the list of animals providing this resource :"
+    puts "#{resources_array.uniq}"
   end
 	
 	def self.count 
