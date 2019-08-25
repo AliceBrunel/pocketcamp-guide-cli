@@ -28,6 +28,10 @@ class PocketcampGuideCli::Animals
 		end
 	end
   
+  def self.find_by_name(input)
+    @@all.find {|animal| animal.name == input}
+  end
+  
   def self.find_by_resource(input)
     @@all.select {|animal| animal.resource.include?(input) == true}
   end

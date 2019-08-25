@@ -10,7 +10,7 @@ class PocketcampGuideCli::CLI
 	def first_choices
 	  puts "What would you like to do?"
 	  puts ""
-		puts "Tp search by animal name type name"
+		puts "To search by animal name type name"
 		puts "To search by resource type resource"
 		puts "To exit type exit"
 		puts ""
@@ -30,7 +30,7 @@ class PocketcampGuideCli::CLI
 
   def search_animal
     puts "Type a name"
-    input = gets.strip.to_s
+    input = gets.strip.to_s.capitalize
     result = PocketcampGuideCli::Animals.find_by_name(input)
     if result != nil
       display_animals(result)
@@ -42,14 +42,14 @@ class PocketcampGuideCli::CLI
   end
 
 	def display_animals(animal)
-	  puts "---|#{animal.name}'s|-----------"
+	  puts "---|#{animal.name}|-----------"
 	  puts ""
 	  puts "   species is: #{animal.species}"
 	  puts "   It's theme and essence: #{animal.theme}"
 	  puts "   This animal will give you: #{animal.resource}"
 	  puts ""
-	  puts "                ^   ^    "
-	  puts "-------------- (=^·^=) --"
+	  puts "    ^   ^    "
+	  puts "-- (=^·^=) --"
 	  puts ""
 	end
   
