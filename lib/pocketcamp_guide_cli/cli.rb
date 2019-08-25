@@ -9,20 +9,16 @@ class PocketcampGuideCli::CLI
 
 	def first_choices
 	  puts "What would you like to do?"
-		puts "[1] Search by animal name"
-		puts "[2] Search by theme"
-		puts "[3] Search by resource"
-		puts "[4] To exit"
+		puts "Search by animal name type name"
+		puts "Search by resource type resource"
+		puts "To exit type exit"
 		
-		input = gets.strip.to_i
-		if input == 1 
+		input = gets.strip
+		if input == "name" 
 		  search_animal
-		elsif input == 2 
-		  search_theme
-		  first_choices
-		elsif input == 3
+		elsif input == "resource" 
 		  search_resources
-		  elsif input == 4
+		  elsif input == "exit"
 		  puts "See you soon!"
 		else 
 		  puts "This input is not valid"
@@ -61,26 +57,16 @@ class PocketcampGuideCli::CLI
     end
   end
   
-  def search_theme 
-    puts "Type a following to view:"
-    puts "cool         -   natural"
-    puts "harmonious   -   modern"
-    puts "hip          -   sporty"
-    puts "cute         -   civic"
-    puts "elegant      -   historical"
-    puts "rustic"
+  def search_resources
+    PocketcampGuideCli::Animals.get_all_resources
     input = gets.strip.to_s
-    array_result = PocketcampGuideCli::Animals.find_by_theme(input)
-    if array_result == input
+    array_result = PocketcampGuideCli::Animals.find_by_resource(input)
+    if array_result.empty? == false
       multiple_result(array_result)
       puts "#{array_result.count} result(s)."
     else
-      "This is not a valid resource."
+      puts "This is not a valid resource."
     end
-  end
-  
-  def search_resources
-    
   end
   
 end

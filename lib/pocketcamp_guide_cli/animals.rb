@@ -28,15 +28,18 @@ class PocketcampGuideCli::Animals
 		end
 	end
   
-  def self.find_by_name(input)
-    @@all.find {|animal| animal.name == input}
-  end
-  
-  def self.find_by_theme(input)
-    @@all.select {|animal| animal.theme.include?(input) == true}
+  def self.find_by_resource(input)
+    @@all.select {|animal| animal.resource.include?(input) == true}
   end
 
-  
+  def self.get_all_resources
+    @@all.each do |animal|
+      resources_array = []
+      resources_array << animal.resource
+      puts resources_array.uniq
+    end
+  end
+	
 	def self.count 
 		@@all.count
 	end
