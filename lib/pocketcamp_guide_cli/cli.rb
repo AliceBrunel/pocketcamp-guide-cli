@@ -10,15 +10,15 @@ class PocketcampGuideCli::CLI
 	def first_choices
 	  puts "What would you like to do?"
 	  puts ""
-		puts "To search by animal name type name"
-		puts "To search by resource type resource"
+		puts "To search by animal name type 1"
+		puts "To search by resource type 2"
 		puts "To exit type exit"
 		puts ""
 		
 		input = gets.strip
-		if input == "name" 
+		if input == "1" 
 		  search_animal
-		elsif input == "resource" 
+		elsif input == "2" 
 		  search_resources
 		  elsif input == "exit"
 		  puts "See you soon!"
