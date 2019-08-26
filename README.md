@@ -1,8 +1,6 @@
 # PocketcampGuideCli
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/pocketcamp_guide_cli`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Welcome to the PocketCamp guide gem! This is a CLI application allowing PocketCamp users (campers) to find information about the animals characters in the game. You can either look for information about an animal by typing its name, or directly search by the name of the resource you are looking for. The CLI application will print a list of animals responding to these criterias.
 
 ## Installation
 
@@ -22,7 +20,9 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Run with 
+    ruby bin/pocketcamp-guide
+Type the above and follow the on screen prompts.
 
 ## Development
 
