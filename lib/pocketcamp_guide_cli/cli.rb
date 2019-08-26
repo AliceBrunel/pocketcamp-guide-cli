@@ -3,7 +3,7 @@ class PocketcampGuideCli::CLI
 	def call
 		animal_hash = PocketcampGuideCli::Scraper.new.make_animal_hashes
 		PocketcampGuideCli::Animals.create_from_array(animal_hash)
-		puts "There is currently #{PocketcampGuideCli::Animals.all.count} registered animals in the PocketCamp game!"
+		puts "Hi campers! Currently #{PocketcampGuideCli::Animals.all.count} animals are registered in the PocketCamp game!"
 		first_choices
 	end
 
@@ -21,7 +21,7 @@ class PocketcampGuideCli::CLI
 		elsif input == "2" 
 		  search_resources
 		  elsif input.downcase == "exit"
-		  puts "See you soon!"
+		  puts "See you on the campsite!"
 		else 
 		  puts "This input is not valid"
 		  first_choices
@@ -29,13 +29,15 @@ class PocketcampGuideCli::CLI
 	end
 
   def search_animal
-    puts "Type a name"
+    puts "Type a name or type back to return to the first choices"
     input = gets.strip.to_s.capitalize
     result = PocketcampGuideCli::Animals.find_by_name(input)
-    if result != nil
+    if result != nil && input != "Back"
       display_animals(result)
       search_animal
-    else 
+    elsif input == "Back"
+      first_choices
+    else
       puts "Doesn't ring a bell... Try something else?"
       first_choices
     end
@@ -67,7 +69,7 @@ class PocketcampGuideCli::CLI
       multiple_result(array_result)
       puts "#{array_result.count} result(s)."
     else
-      puts "This is not a valid resource."
+      puts "This resource doesn't exist in the game."
     end
     
     first_choices
