@@ -48,8 +48,8 @@ class PocketcampGuideCli::CLI
 	  puts "   It's theme and essence: #{animal.theme}"
 	  puts "   This animal will give you: #{animal.resource}"
 	  puts ""
-	  puts "    ^   ^    "
-	  puts "-- (=^·^=) --"
+	  puts "     ^   ^     "
+	  puts "--- (=^·^=) ---"
 	  puts ""
 	end
   
@@ -69,6 +69,8 @@ class PocketcampGuideCli::CLI
     else
       puts "This is not a valid resource."
     end
+    
+    first_choices
   end
   
 end
