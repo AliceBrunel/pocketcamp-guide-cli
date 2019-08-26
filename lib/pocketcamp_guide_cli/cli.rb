@@ -20,7 +20,7 @@ class PocketcampGuideCli::CLI
 		  search_animal
 		elsif input == "2" 
 		  search_resources
-		  elsif input == "exit"
+		  elsif input.downcase == "exit"
 		  puts "See you soon!"
 		else 
 		  puts "This input is not valid"

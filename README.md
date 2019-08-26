@@ -21,7 +21,7 @@ Or install it yourself as:
 ## Usage
 
 Run with 
-    ruby bin/pocketcamp-guide
+    $ ruby bin/pocketcamp-guide
 Type the above and follow the on screen prompts.
 
 ## Development
