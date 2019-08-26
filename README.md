@@ -1,6 +1,6 @@
 # PocketcampGuideCli
 
-Welcome to the PocketCamp guide gem! This is a CLI application allowing PocketCamp users (campers) to find information about the animals characters in the game. You can either look for information about an animal by typing its name, or directly search by the name of the resource you are looking for. The CLI application will print a list of animals responding to these criterias.
+Welcome to the PocketCamp guide gem! This is a CLI application allowing PocketCamp users (campers) to find information about the animals characters in the game. You can either look for information about an animal by typing its name, or search by the resource's name you are looking for. The CLI application will print a list of animals responding to these criterias.
 
 ## Installation
 
