@@ -48,6 +48,15 @@ class PocketcampGuideCli::Animals
     puts "Type the resource you are looking for to see the list of animals providing this resource :"
     puts "#{resources_array.uniq}"
   end
+  
+  def self.get_all_essences
+    essence_array = []
+    @@all.each do |animal|
+      essence_array << animal.theme
+    end
+    puts "Type the resource you are looking for to see the list of animals providing this resource :"
+    puts "#{essence_array.uniq}"
+  end  
 	
 	def self.count 
 		@@all.count

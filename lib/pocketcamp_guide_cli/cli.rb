@@ -12,6 +12,7 @@ class PocketcampGuideCli::CLI
 	  puts ""
 		puts "To search by animal name type 1"
 		puts "To search by resource type 2"
+		puts "To search by essence type 3"
 		puts "To exit type exit"
 		puts ""
 		
@@ -20,7 +21,9 @@ class PocketcampGuideCli::CLI
 		  search_animal
 		elsif input == "2" 
 		  search_resources
-		  elsif input.downcase == "exit"
+		elsif input == "3"
+		  search_essences
+		elsif input.downcase == "exit"
 		  puts "See you on the campsite!"
 		else 
 		  puts "This input is not valid"
@@ -42,6 +45,24 @@ class PocketcampGuideCli::CLI
       first_choices
     end
   end
+  
+  def search_resources
+    PocketcampGuideCli::Animals.get_all_resources
+    input = gets.strip.to_s
+    array_result = PocketcampGuideCli::Animals.find_by_resource(input)
+    if array_result.empty? == false
+      multiple_result(array_result)
+      puts "#{array_result.count} result(s)."
+    else
+      puts "This resource doesn't exist in the game."
+    end
+    
+    first_choices
+  end
+  
+  def search_essences
+    PocketcampGuideCli::Animals.
+  end
 
 	def display_animals(animal)
 	  puts "---|#{animal.name}|-----------"
@@ -60,19 +81,4 @@ class PocketcampGuideCli::CLI
       display_animals(item)
     end
   end
-  
-  def search_resources
-    PocketcampGuideCli::Animals.get_all_resources
-    input = gets.strip.to_s
-    array_result = PocketcampGuideCli::Animals.find_by_resource(input)
-    if array_result.empty? == false
-      multiple_result(array_result)
-      puts "#{array_result.count} result(s)."
-    else
-      puts "This resource doesn't exist in the game."
-    end
-    
-    first_choices
-  end
-  
 end
