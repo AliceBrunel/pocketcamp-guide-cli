@@ -47,21 +47,27 @@ class PocketcampGuideCli::CLI
   end
   
   def search_resources
-    PocketcampGuideCli::Animals.get_all_resources
+    PocketcampGuideCli::Animals.get_all_lists("resource")
     input = gets.strip.to_s
     array_result = PocketcampGuideCli::Animals.find_by_resource(input)
-    if array_result.empty? == false
-      multiple_result(array_result)
-      puts "#{array_result.count} result(s)."
-    else
-      puts "This resource doesn't exist in the game."
-    end
-    
-    first_choices
+    display_search_results(array_result)
   end
   
   def search_essences
-    PocketcampGuideCli::Animals.
+    PocketcampGuideCli::Animals.get_all_lists("theme")
+    input = gets.strip.to_s
+    array_result = PocketcampGuideCli::Animals.find_by_essence(input)
+    display_search_results(array_result)
+  end
+  
+  def display_search_results(array)
+    if array.empty? == false
+      multiple_result(array)
+      puts "#{array.count} result(s)."
+    else
+      puts "This element doesn't exist in the game."
+    end
+    first_choices
   end
 
 	def display_animals(animal)

@@ -40,23 +40,14 @@ class PocketcampGuideCli::Animals
     @@all.select {|animal| animal.theme.include?(input) == true}
   end
 
-  def self.get_all_resources
-    resources_array = []
+  def self.get_all_lists(criteria)
+    array = []
     @@all.each do |animal|
-      resources_array << animal.resource
+      array << animal.send(criteria)
     end
-    puts "Type the resource you are looking for to see the list of animals providing this resource :"
-    puts "#{resources_array.uniq}"
+    puts "Type the name of the item you are looking for from the list below:"
+    puts "#{array.uniq}"
   end
-  
-  def self.get_all_essences
-    essence_array = []
-    @@all.each do |animal|
-      essence_array << animal.theme
-    end
-    puts "Type the resource you are looking for to see the list of animals providing this resource :"
-    puts "#{essence_array.uniq}"
-  end  
 	
 	def self.count 
 		@@all.count
