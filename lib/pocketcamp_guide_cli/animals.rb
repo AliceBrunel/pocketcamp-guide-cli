@@ -35,6 +35,10 @@ class PocketcampGuideCli::Animals
   def self.find_by_resource(input)
     @@all.select {|animal| animal.resource.include?(input) == true}
   end
+  
+  def self.find_by_essence(input)
+    @@all.select {|animal| animal.theme.include?(input) == true}
+  end
 
   def self.get_all_resources
     resources_array = []
