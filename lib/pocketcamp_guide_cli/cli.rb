@@ -3,7 +3,7 @@ class PocketcampGuideCli::CLI
 	def call
 		animal_hash = PocketcampGuideCli::Scraper.new.make_animal_hashes
 		PocketcampGuideCli::Animals.create_from_array(animal_hash)
-		puts "Hi campers! Currently #{PocketcampGuideCli::Animals.all.count} animals are registered in the PocketCamp game!"
+		puts "Hi campers! Currently, #{PocketcampGuideCli::Animals.all.count} animals are registered in the PocketCamp game!"
 		first_choices
 	end
 
@@ -73,7 +73,7 @@ class PocketcampGuideCli::CLI
 	def display_animals(animal)
 	  puts "---|#{animal.name}|-----------"
 	  puts ""
-	  puts "   species is: #{animal.species}"
+	  puts "   species: #{animal.species}"
 	  puts "   It's theme and essence: #{animal.theme}"
 	  puts "   This animal will give you: #{animal.resource}"
 	  puts ""
