@@ -27,6 +27,12 @@ class PocketcampGuideCli::Animals
 		self.new(name, species, theme, resource)
 		end
 	end
+	
+	def self.all_animals_names
+	@@all.each do |animal|
+	    puts animal.name
+	  end
+	end
   
   def self.find_by_name(input)
     @@all.find {|animal| animal.name == input}
