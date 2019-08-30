@@ -1,6 +1,11 @@
 class PocketcampGuideCli::Scraper
    
-  @animals = []
+  @@animals = []
+  @@index_animal_name = 0
+  @@index_animal_personality = 1
+  @@index_animal_species = 2
+  @@index_animal_theme = 4
+  @@index_animal_resource = 3
   
   def get_page 
     Nokogiri::HTML(open("https://animalcrossing.fandom.com/wiki/Villager_list_(Pocket_Camp)"))
@@ -14,11 +19,11 @@ class PocketcampGuideCli::Scraper
     animals_hash = []
     animals = scrape_animal_info
     animals.each do |animal_array|
-      name = animal_array[0].text
-      personality = animal_array[1].text
-      species = animal_array[2].text
-      theme = animal_array[4].text
-      resource = animal_array[3].text
+      name = animal_array[@@index_animal_name].text
+      personality = animal_array[@@index_animal_personality].text
+      species = animal_array[@@index_animal_species].text
+      theme = animal_array[@@index_animal_theme].text
+      resource = animal_array[@@index_animal_resource].text
       animals_hash << {:name => name, :species => species, :theme => theme, :resource => resource}
     end
     animals_hash
