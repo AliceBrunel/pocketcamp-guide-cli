@@ -33,6 +33,10 @@ class PocketcampGuideCli::Animals
 	    puts animal.name
 	  end
 	end
+	
+	def self.find_by(criteria, input)
+	  @@all.select {|animal| animal.send(criteria).include?(input) == true}
+	end
   
   def self.find_by_name(input)
     @@all.find {|animal| animal.name == input}

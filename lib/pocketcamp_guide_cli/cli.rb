@@ -40,12 +40,12 @@ class PocketcampGuideCli::CLI
   end
 
   def search_animal
+    search_criteria = "name"
     puts "Type a name or type back to return to the first choices"
     input = gets.strip.to_s.capitalize
-    result = PocketcampGuideCli::Animals.find_by_name(input)
-    if result != nil && input != "Back"
-      display_animals(result)
-      search_animal
+    array_result = PocketcampGuideCli::Animals.find_by(search_criteria, input)
+    if array_result.empty? == false
+      display_search_results(array_result)
     elsif input == "Back"
       first_choices
     else
@@ -55,14 +55,16 @@ class PocketcampGuideCli::CLI
   end
   
   def search_resources
-    PocketcampGuideCli::Animals.get_all_lists("resource")
+    search_criteria = "resource"
+    PocketcampGuideCli::Animals.get_all_lists(search_criteria)
     input = gets.strip.to_s.downcase
-    array_result = PocketcampGuideCli::Animals.find_by_resource(input)
+    array_result = PocketcampGuideCli::Animals.find_by(search_criteria, input)
     display_search_results(array_result)
   end
   
   def search_essences
-    PocketcampGuideCli::Animals.get_all_lists("theme")
+    search_criteria = "theme"
+    PocketcampGuideCli::Animals.get_all_lists(search_criteria)
     input = gets.strip.to_s.downcase
     array_result = PocketcampGuideCli::Animals.find_by_essence(input)
     display_search_results(array_result)
