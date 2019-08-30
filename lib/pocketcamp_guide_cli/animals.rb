@@ -35,20 +35,8 @@ class PocketcampGuideCli::Animals
 	end
 	
 	def self.find_by(criteria, input)
-	  @@all.select {|animal| animal.send(criteria).include?(input) == true}
+	  @@all.select {|animal| animal.send(criteria).downcase.include?(input) == true}
 	end
-  
-  def self.find_by_name(input)
-    @@all.find {|animal| animal.name == input}
-  end
-  
-  def self.find_by_resource(input)
-    @@all.select {|animal| animal.resource.include?(input) == true}
-  end
-  
-  def self.find_by_essence(input)
-    @@all.select {|animal| animal.theme.include?(input) == true}
-  end
 
   def self.get_all_lists(criteria)
     array = []

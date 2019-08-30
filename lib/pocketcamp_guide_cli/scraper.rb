@@ -24,7 +24,7 @@ class PocketcampGuideCli::Scraper
       species = animal_array[@@index_animal_species].text
       theme = animal_array[@@index_animal_theme].text
       resource = animal_array[@@index_animal_resource].text
-      animals_hash << {:name => name.capitalize, :species => species.downcase, :theme => theme.downcase, :resource => resource.downcase}
+      animals_hash << {:name => name, :species => species, :theme => theme, :resource => resource}
     end
     animals_hash
   end

@@ -22,11 +22,11 @@ class PocketcampGuideCli::CLI
 		  print_all_animals
 		  first_choices
 		elsif input == "1" 
-		  search_animal
+		  search_by("name", false)
 		elsif input == "2" 
-		  search_resources
+		  search_by("resource", true)
 		elsif input == "3"
-		  search_essences
+		  search_by("theme", true)
 		elsif input.downcase == "exit"
 		  puts "See you on the campsite!"
 		else 
@@ -39,34 +39,13 @@ class PocketcampGuideCli::CLI
     PocketcampGuideCli::Animals.all_animals_names
   end
 
-  def search_animal
-    search_criteria = "name"
-    puts "Type a name or type back to return to the first choices"
-    input = gets.strip.to_s.capitalize
-    array_result = PocketcampGuideCli::Animals.find_by(search_criteria, input)
-    if array_result.empty? == false
-      display_search_results(array_result)
-    elsif input == "Back"
-      first_choices
-    else
-      puts "Doesn't ring a bell... Try something else?"
-      first_choices
+  def search_by(criteria, printall)
+    search_criteria = criteria
+    if printall == true
+    PocketcampGuideCli::Animals.get_all_lists(search_criteria)
     end
-  end
-  
-  def search_resources
-    search_criteria = "resource"
-    PocketcampGuideCli::Animals.get_all_lists(search_criteria)
     input = gets.strip.to_s.downcase
     array_result = PocketcampGuideCli::Animals.find_by(search_criteria, input)
-    display_search_results(array_result)
-  end
-  
-  def search_essences
-    search_criteria = "theme"
-    PocketcampGuideCli::Animals.get_all_lists(search_criteria)
-    input = gets.strip.to_s.downcase
-    array_result = PocketcampGuideCli::Animals.find_by_essence(input)
     display_search_results(array_result)
   end
   
@@ -75,7 +54,7 @@ class PocketcampGuideCli::CLI
       multiple_result(array)
       puts "#{array.count} result(s)."
     else
-      puts "This element doesn't exist in the game."
+      puts "Sorry, can't find this!"
     end
     first_choices
   end
