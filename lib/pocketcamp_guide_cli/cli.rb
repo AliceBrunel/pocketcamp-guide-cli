@@ -22,6 +22,7 @@ class PocketcampGuideCli::CLI
 		  print_all_animals
 		  first_choices
 		elsif input == "1" 
+		  puts "Please type the name of the animal you are looking for, then press enter:"
 		  search_by("name", false)
 		elsif input == "2" 
 		  search_by("resource", true)
