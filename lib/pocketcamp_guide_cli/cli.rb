@@ -1,3 +1,4 @@
+
 class PocketcampGuideCli::CLI 
 
 	def call

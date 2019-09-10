@@ -50,5 +50,9 @@ class PocketcampGuideCli::Animals
 	def self.count 
 		@@all.count
 	end
-
+	
+	def self.find_by_letter(letter)
+	  @@all.select {|animal| animal.name.include?(letter)}
+	end
+  
 end
