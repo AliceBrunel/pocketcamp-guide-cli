@@ -11,25 +11,26 @@ class PocketcampGuideCli::CLI
 	def first_choices
 	  puts "What would you like to do?"
 	  puts ""
-	  puts "To view the list of animals name type 0"
-		puts "To search by animal name type 1"
-		puts "To search by resource type 2"
-		puts "To search by essence type 3"
+	  puts "To view the list of animals name type list"
+		puts "To search by animal name type name"
+		puts "To search by resource type resource"
+		puts "To search by theme and essence type theme"
 		puts "To exit type exit"
 		puts ""
 		
-		input = gets.strip
-		if input == "0"
+		input = gets.strip.downcase
+		case input
+		when "list"
 		  print_all_animals
 		  first_choices
-		elsif input == "1" 
+		when "name" 
 		  puts "Please type the name of the animal you are looking for, then press enter:"
-		  search_by("name", false)
-		elsif input == "2" 
-		  search_by("resource", true)
-		elsif input == "3"
-		  search_by("theme", true)
-		elsif input.downcase == "exit"
+		  search_by(input, false)
+		when "resource"
+		  search_by(input, true)
+		when "theme"
+		  search_by(input, true)
+		when "exit"
 		  puts "See you on the campsite!"
 		else 
 		  puts "This input is not valid"
